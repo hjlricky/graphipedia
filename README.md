@@ -4,6 +4,8 @@ Graphipedia
 A set of tools for creating a graph database of Wikipedia pages and the links
 between them.
 
+This is a fork by Jiali.
+
 Importing Data
 --------------
 
