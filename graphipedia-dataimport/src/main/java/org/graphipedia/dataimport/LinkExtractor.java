@@ -89,7 +89,7 @@ public class LinkExtractor extends SimpleStaxParser {
         pageCounter.increment();
     }
 
-    private Set<String> parseLinks(String text) {
+    private Set<String> parseLinks(String text) {			//deal with categories here
         Set<String> links = new HashSet<String>();
         if (text != null) {
             Matcher matcher = LINK_PATTERN.matcher(text);

@@ -58,16 +58,19 @@ public class RelationshipCreator extends SimpleStaxParser {
         if ("t".equals(element)) {
             nodeId = findNodeId(value);
         } else if ("l".equals(element)) {
-            createRelationship(nodeId, value);
+            createRelationship(nodeId, value);					//deal with the relationship between the nodes.
         }
     }
 
     private void createRelationship(long nodeId, String link) {
         Long linkNodeId = findNodeId(link);
         if (linkNodeId != null) {
-            inserter.createRelationship(nodeId, linkNodeId, WikiRelationshipType.Link, MapUtil.map());
+        	System.out.println("The node Id is " + nodeId);
+        	System.out.println("The linked node Id is " + linkNodeId);
+            inserter.createRelationship(nodeId, linkNodeId, WikiRelationshipType.Link, MapUtil.map());	//define wikirelation first
             linkCounter.increment();
         } else {
+        	System.out.println(nodeId + " "+ link + " failed");
             badLinkCount++;
         }
     }
